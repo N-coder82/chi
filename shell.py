@@ -1,6 +1,6 @@
 import os
 import openai
-#TODO: add wnv vaiable support for apikey
+#TODO: add env vaiable support for apikey
 apikey = "an env variable"
 openai.api_key = apikey
 def chatbot(input):
