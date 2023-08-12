@@ -1,0 +1,72 @@
+#TODO: edit write AND read funcion to use the storeage format in reminderstorageformat.txt
+
+def file_edit(filename, action, key, string=None):
+    if action == "read" or action == "r":
+        try:
+            with open(filename, "r") as file:
+                data = file.readlines()
+                for line in data:
+                    if key in line:
+                        return line.strip().split(":")[1]
+        except FileNotFoundError:
+            return None
+    elif action == "write" or action == "w":
+        data = {}
+        try:
+            with open(filename, "r") as file:
+                for line in file:
+                    k, v = line.strip().split(":")
+                    data[k] = v
+
+            data[key] = string
+
+            with open(filename, "w") as file:
+                for k, v in data.items():
+                    file.write(f"{k}:{v}\n")
+        except FileNotFoundError:
+            with open(filename, "w") as file:
+                file.write(f"{key}:{string}\n")
+    elif action == "delete" or action == "d":  # New condition for deletion
+        try:
+            with open(filename, "r") as file:
+                data = file.readlines()
+
+            with open(filename, "w") as file:
+                for line in data:
+                    if str(line.split(":")[0]) != key:
+                        file.write(line)
+        except FileNotFoundError:
+            raise Exception(f'File named "{filename}" not found')
+def getkeytowrite(filename):
+    try:
+        with open(filename, "r") as file:
+            lines = file.readlines()
+            if lines:
+                key, value = lines[-1].strip(":")
+                return int(key)
+            else:
+                raise OSError("Empty file.")
+    except FileNotFoundError:
+        raise FileNotFoundError("File doesn't exist.")
+def read(filename,key):
+    try:
+        with open(filename, "r") as file:
+            data = file.readlines()
+            for line in data:
+                if str(line.split(":")[0]) != key:
+                    return line.strip().split(":")[1]
+    except FileNotFoundError:
+        raise FileNotFoundError("File doesn't exist.")
+def write(filename,value):
+    keytowrite = getkeytowrite(filename)
+    try:
+        with open(filename, "a") as file:
+            file.write(f"{keytowrite}:{value}\n")
+    except PermissionError:
+        raise PermissionError("No permission to edit file.")
+    except IOError as exep:
+        raise IOError(f"Unknown IO error: {exep}.")
+def delete(filename):
+    pass
+def edit(filename):
+    pass
