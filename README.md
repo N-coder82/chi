@@ -1,4 +1,4 @@
-#Help with features and bugs from the [project](https://github.com/N-coder82/chi/projects?query=is%3Aopen) would be amazing!
+# Help with features and bugs from the [project](https://github.com/N-coder82/chi/projects?query=is%3Aopen) would be amazing!
 <br/>
 <p align="center">
   <a href="https://github.com/N-Coder82/chi">
