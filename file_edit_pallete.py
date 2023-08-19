@@ -1,5 +1,5 @@
 #TODO: edit write AND read funcion to use the storeage format in reminderstorageformat.txt
-
+#1:title",desc",datetodone_+///,timetodone_+::,repeat?+",place_+",priority_+",flagged?
 def file_edit(filename, action, key, string=None):
     if action == "read" or action == "r":
         try:
@@ -42,30 +42,45 @@ def getkeytowrite(filename):
         with open(filename, "r") as file:
             lines = file.readlines()
             if lines:
-                key, value = lines[-1].strip(":")
-                return int(key)
+                key = lines[-1].split(":")
+                print(lines[-1])
+                return int(key[0]) + 1
             else:
                 raise OSError("Empty file.")
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
-def read(filename,key):
-    try:
-        with open(filename, "r") as file:
-            data = file.readlines()
-            for line in data:
-                if str(line.split(":")[0]) != key:
-                    return line.strip().split(":")[1]
-    except FileNotFoundError:
-        raise FileNotFoundError("File doesn't exist.")
-def write(filename,value):
+def write(filename,title,desc,datetodone,timetodone,repeat,place,priority,flagged):
     keytowrite = getkeytowrite(filename)
+    print("key is", keytowrite)
     try:
         with open(filename, "a") as file:
+            value = f"{title},{desc},{datetodone},{timetodone},{repeat},{place},{priority},{flagged}"
             file.write(f"{keytowrite}:{value}\n")
     except PermissionError:
         raise PermissionError("No permission to edit file.")
     except IOError as exep:
         raise IOError(f"Unknown IO error: {exep}.")
+
+def read(filename,key):
+    title = ""
+    desc = ""
+    datetodone = ""
+    timetodone = ""
+    repeat = True
+    place = ""
+    priority = ""
+    flagged = True
+    try:
+        with open(filename, "r") as file:
+            data = file.readlines()
+            for line in data:
+                if str(line.split(":")[0]) == key:
+                    rawdata = line.strip().split(":")[1]
+                    title,desc,datetodone,timetodone,repeat,place,priority,flagged = rawdata.split(",")
+                    return [title,desc,datetodone,timetodone,repeat,place,priority,flagged]
+
+    except FileNotFoundError:
+        raise FileNotFoundError("File doesn't exist.")
 def delete(filename):
     pass
 def edit(filename):

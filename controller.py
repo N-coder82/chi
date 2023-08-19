@@ -1,5 +1,5 @@
 #Dedicated to my sister, she gave me the idea.
-
+weatherapikey = ""
 import os
 import requests
 import json
@@ -43,8 +43,8 @@ def getkeytowrite(filename):
                 raise OSError("File selected is made of whitespace or has no data/ is empty.")
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
-def weather_data(apikey,zipcode):
-    response = requests.get(f"https://api.weatherapi.com/v1/current.json?key={apikey}&q={zipcode}&aqi=no")
+def weather_data(zipcode):
+    response = requests.get(f"https://api.weatherapi.com/v1/current.json?key={weatherapikey}&q={zipcode}&aqi=no")
     jsonsinglequote = str(response.json())
     goodresponse = jsonsinglequote.replace("'",'"')
     weatherdict = json.loads(goodresponse)

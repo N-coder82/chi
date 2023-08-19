@@ -1,0 +1,48 @@
+key:
+_ = optional
+" = string
+? = booleen
+# = range (numeral)
+/// = date
+:: = time
+?+" = booleen and string
+_+" = string that is optional
+_+# = optional range (numeral)
+_+/// = optional date
+_+:: = optional time
+null = optional value not filled
+Encodings:
+title,desc,place = string
+datetodone, = mm/dd/yyyy
+timetodone = hh.mm(a/p)
+    (a/p) = booleen for AM or PM
+priority = range:
+   1 = lowest
+   2 = low
+   3 = high
+   4 = max
+flagged = y = True, n = False
+repeat = b(y/n)d[1-24]y[1-365]
+          bool  day    year
+repeat info:
+
+    The way it encodes is: it types b to signify that the next value is a booleen, then when it sees d it knows that the booleen is done and the next values are the day repeat count then when it sees y it knows that the day count is done and the next values are the year repeat count.
+
+    () = bool
+    [] = range
+    b = booleen
+    d = day
+    y = year
+    quick values:
+	day = 1 = once every 24 hours
+	day = 2 = once every 12 hours
+	day = 24 = once every hour
+	year = 1 = once per year
+	year = 52 = once per week
+	year = 365 once per day
+
+
+1:title",desc",datetodone_+///,timetodone_+::,repeat?+",place_+",priority_+",flagged?
+
+1:Feed Muffin,Give her food but not chicken,null,null,byd1y365,Home,4,True
+2:Code Chi App,Finish Main Function,7/22/2023,12:00p,bnd0y0,Home,null,False
