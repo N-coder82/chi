@@ -39,7 +39,7 @@
 
 ## About The Project
 
-A Reminders and that combines ChatGPT, weather and a simple interface perfect for power users into one, singular app. It is a command-line app that (ironically) has a GUI interface drawn with ASCII art similar to tmux.
+A Reminders and that combines ChatGPT, weather and a simple interface perfect for power users into one, singular app. It is a command-line app that (ironically) has a GUI interface drawn with ASCII art similar to tmux. __I've never done a large project like this so please forgive me if I don't use pull requests in releases, etc. It's because I don't know the proper format or how to do it! I am always learning so hopefully I should get into the habit of things like this!__
 
 ## Built With
 
