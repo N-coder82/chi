@@ -71,19 +71,13 @@ pip install pytoexe
 git clone https://github.com/N-coder82/chi
 ```
 
-3. Install NPM packages
-
-```sh
-npm install
-```
-
-4. Enter your OpenAI API key in `shell.py`
+3. Enter your OpenAI API key in `shell.py`
 
 ```python
 openai.api_key = "sk-************************************************"
 
 ```
-5. Enter your weatherapi.com API key in `shell.py`
+4. Enter your weatherapi.com API key in `shell.py`
 
 ```python
 weatherapikey = "*******************************"
