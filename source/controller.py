@@ -1,7 +1,5 @@
 #Dedicated to my sister, she gave me the idea.
 import os
-import requests
-import json
 #TODO: remove key param when done changing to to whats referenced in todoforbasemvp.md
 def metadata_read(filename):
     key = "username"
@@ -42,12 +40,3 @@ def getkeytowrite(filename):
                 raise OSError("File selected is made of whitespace or has no data/ is empty.")
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
-def weather_data(zipcode):
-    response = requests.get(f"https://api.weatherapi.com/v1/current.json?key={weatherapikey}&q={zipcode}&aqi=no")
-    jsonsinglequote = str(response.json())
-    goodresponse = jsonsinglequote.replace("'",'"')
-    weatherdict = json.loads(goodresponse)
-    city = weatherdict["location"]["name"]
-    temp = weatherdict["current"]["temp_c"]
-    condition = weatherdict["current"]["condition"]["text"]
-    return [city,temp,condition]
