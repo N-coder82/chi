@@ -81,7 +81,18 @@ def read(filename,key):
 
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
-def delete(filename):
-    pass
+def delete(filename,key):
+#key NEEDS TO BE A STRING
+    try:
+        with open(filename, "r") as file:
+            data = file.readlines()
+
+        with open(filename, "w") as file:
+            for line in data:
+                if str(line.split(":")[0]) != key:
+                    file.write(line)
+    except FileNotFoundError:
+        raise Exception(f'File named "{filename}" not found')
+delete("reminders.chi",6)
 def edit(filename):
     pass
