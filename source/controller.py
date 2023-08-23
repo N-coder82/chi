@@ -1,5 +1,4 @@
 #Dedicated to my sister, she gave me the idea.
-weatherapikey = ""
 import os
 import requests
 import json

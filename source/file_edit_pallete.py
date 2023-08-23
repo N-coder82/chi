@@ -1,5 +1,3 @@
-#TODO: edit write AND read funcion to use the storeage format in reminderstorageformat.txt
-#1:title",desc",datetodone_+///,timetodone_+::,repeat?+",place_+",priority_+",flagged?
 def file_edit(filename, action, key, string=None):
     if action == "read" or action == "r":
         try:
@@ -93,6 +91,5 @@ def delete(filename,key):
                     file.write(line)
     except FileNotFoundError:
         raise Exception(f'File named "{filename}" not found')
-delete("reminders.chi",6)
 def edit(filename):
     pass

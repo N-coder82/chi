@@ -2,6 +2,7 @@ import os
 import openai
 #TODO: add env vaiable support for apikey
 openai.api_key = ""
+weatherapikey = ""
 def chatbot(input):
     messages = [
         {
