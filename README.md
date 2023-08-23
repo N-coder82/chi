@@ -14,7 +14,6 @@
     <a href="https://github.com/N-Coder82/chi"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/N-Coder82/chi">View Demo</a>
     .
     <a href="https://github.com/N-Coder82/chi/issues">Report Bug</a>
     .
