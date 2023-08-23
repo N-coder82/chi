@@ -14,8 +14,6 @@
     <a href="https://github.com/N-Coder82/chi"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/N-Coder82/chi">View Demo</a>
-    .
     <a href="https://github.com/N-Coder82/chi/issues">Report Bug</a>
     .
     <a href="https://github.com/N-Coder82/chi/issues">Request Feature</a>
@@ -71,19 +69,13 @@ pip install pytoexe
 git clone https://github.com/N-coder82/chi
 ```
 
-3. Install NPM packages
-
-```sh
-npm install
-```
-
-4. Enter your OpenAI API key in `shell.py`
+3. Enter your OpenAI API key in `shell.py`
 
 ```python
 openai.api_key = "sk-************************************************"
 
 ```
-5. Enter your weatherapi.com API key in `shell.py`
+4. Enter your weatherapi.com API key in `shell.py`
 
 ```python
 weatherapikey = "*******************************"
