@@ -35,6 +35,8 @@ def file_edit(filename, action, key, string=None):
                         file.write(line)
         except FileNotFoundError:
             raise Exception(f'File named "{filename}" not found')
+
+
 def getkeytowrite(filename):
     try:
         with open(filename, "r") as file:
@@ -47,7 +49,11 @@ def getkeytowrite(filename):
                 raise OSError("Empty file.")
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
-def write(filename,title,desc,datetodone,timetodone,repeat,place,priority,flagged):
+
+
+def write(
+    filename, title, desc, datetodone, timetodone, repeat, place, priority, flagged
+):
     keytowrite = getkeytowrite(filename)
     print("key is", keytowrite)
     try:
@@ -59,7 +65,8 @@ def write(filename,title,desc,datetodone,timetodone,repeat,place,priority,flagge
     except IOError as exep:
         raise IOError(f"Unknown IO error: {exep}.")
 
-def read(filename,key):
+
+def read(filename, key):
     title = ""
     desc = ""
     datetodone = ""
@@ -74,7 +81,16 @@ def read(filename,key):
             for line in data:
                 if str(line.split(":")[0]) == key:
                     rawdata = line.strip().split(":")[1]
-                    title,desc,datetodone,timetodone,repeat,place,priority,flagged = rawdata.split(",")
+                    (
+                        title,
+                        desc,
+                        datetodone,
+                        timetodone,
+                        repeat,
+                        place,
+                        priority,
+                        flagged,
+                    ) = rawdata.split(",")
                     if repeat == "true" or "True":
                         repeat = True
                     elif repeat == "false" or "False":
@@ -83,12 +99,23 @@ def read(filename,key):
                         flagged = True
                     elif flagged == "false" or "False":
                         flagged = False
-                    return [title,desc,datetodone,timetodone,repeat,place,priority,flagged]
+                    return [
+                        title,
+                        desc,
+                        datetodone,
+                        timetodone,
+                        repeat,
+                        place,
+                        priority,
+                        flagged,
+                    ]
 
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
-def delete(filename,key):
-#key NEEDS TO BE A STRING
+
+
+def delete(filename, key):
+    # key NEEDS TO BE A STRING
     try:
         with open(filename, "r") as file:
             data = file.readlines()
@@ -99,5 +126,7 @@ def delete(filename,key):
                     file.write(line)
     except FileNotFoundError:
         raise Exception(f'File named "{filename}" not found')
-def edit(filename,key,value):
+
+
+def edit(filename, key, value):
     pass

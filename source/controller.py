@@ -1,6 +1,8 @@
-#Dedicated to my sister, she gave me the idea.
+# Dedicated to my sister, she gave me the idea.
 import os
-#TODO: remove key param when done changing to to whats referenced in todoforbasemvp.md
+
+
+# TODO: remove key param when done changing to to whats referenced in todoforbasemvp.md
 def metadata_read(filename):
     key = "username"
     usernamevalue = ""
@@ -23,12 +25,16 @@ def metadata_read(filename):
     except FileNotFoundError:
         return None
     return [usernamevalue, uidvalue]
-def metadata_add(filename,username,uid):
-    with open(filename, 'r') as file:
+
+
+def metadata_add(filename, username, uid):
+    with open(filename, "r") as file:
         content = file.read()
 
-    with open(filename, 'w') as file:
+    with open(filename, "w") as file:
         file.write(f"username:{username}\nuid:{uid}\n" + content)
+
+
 def getkeytowrite(filename):
     try:
         with open(filename, "r") as file:
@@ -37,6 +43,8 @@ def getkeytowrite(filename):
                 key, value = lines[-1].strip(":")
                 return int(key)
             else:
-                raise OSError("File selected is made of whitespace or has no data/ is empty.")
+                raise OSError(
+                    "File selected is made of whitespace or has no data/ is empty."
+                )
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
