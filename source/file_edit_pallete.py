@@ -75,6 +75,14 @@ def read(filename,key):
                 if str(line.split(":")[0]) == key:
                     rawdata = line.strip().split(":")[1]
                     title,desc,datetodone,timetodone,repeat,place,priority,flagged = rawdata.split(",")
+                    if repeat == "true" or "True":
+                        repeat = True
+                    elif repeat == "false" or "False":
+                        repeat = False
+                    if flagged == "true" or "True":
+                        flagged = True
+                    elif flagged == "false" or "False":
+                        flagged = False
                     return [title,desc,datetodone,timetodone,repeat,place,priority,flagged]
 
     except FileNotFoundError:
@@ -91,5 +99,5 @@ def delete(filename,key):
                     file.write(line)
     except FileNotFoundError:
         raise Exception(f'File named "{filename}" not found')
-def edit(filename):
+def edit(filename,key,value):
     pass
