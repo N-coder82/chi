@@ -128,5 +128,4 @@ def delete(filename, key):
         raise Exception(f'File named "{filename}" not found')
 
 
-def edit(filename, key, value):
-    pass
+
