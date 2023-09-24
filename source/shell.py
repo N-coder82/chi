@@ -2,12 +2,12 @@ import os
 import openai
 import requests
 import json
-
+from datetime import datetime
 # TODO: add env vaiable support for apikey
 openai.api_key = ""
 weatherapikey = ""
-
-
+zipcode = ""
+now = datetime.now()
 def chatbot(input):
     messages = [
         {
@@ -15,6 +15,8 @@ def chatbot(input):
             "content": "You are ChatGPT, a large language model trained by OpenAI.",
         },
         {"role": "system", "content": "Knowledge cutoff: 2021-09"},
+        {"role": "system", "content": f"Current date and time is {now.strftime('%m/%d/%Y %H:%M')}"},
+        {"role": "system", "content": f"Current weather is: {weather_data(zipcode)}"}
     ]
     if input:
         messages.append({"role": "user", "content": input})

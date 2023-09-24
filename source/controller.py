@@ -144,6 +144,3 @@ def edit(filename, old_key, new_value):
     except FileNotFoundError:
         raise Exception(f'File named "{filename}" not found')
 
-
-input("...")
-edit("reminders.chi", "7", "i REALLy love cats!")
