@@ -1,7 +1,6 @@
 # Dedicated to my sister, she gave me the idea.
 import os
 
-
 # TODO: remove key param when done changing to to whats referenced in todoforbasemvp.md
 def metadata_read(filename):
     key = "username"
@@ -26,7 +25,6 @@ def metadata_read(filename):
         return None
     return [usernamevalue, uidvalue]
 
-
 def metadata_add(filename, username, uid):
     with open(filename, "r") as file:
         content = file.read()
@@ -46,7 +44,6 @@ def getkeytowrite(filename):
                 raise OSError("Empty file.")
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
-
 
 def write(
     filename, title, desc, datetodone, timetodone, repeat, place, priority, flagged
@@ -110,7 +107,6 @@ def read(filename, key):
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
 
-
 def delete(filename, key):
     # key NEEDS TO BE A STRING
     try:
@@ -123,7 +119,6 @@ def delete(filename, key):
                     file.write(line)
     except FileNotFoundError:
         raise Exception(f'File named "{filename}" not found')
-
 
 def edit(filename, old_key, new_value):
     try:

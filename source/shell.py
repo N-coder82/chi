@@ -3,6 +3,7 @@ import openai
 import requests
 import json
 from datetime import datetime
+import argparse
 # TODO: add env vaiable support for apikey
 openai.api_key = ""
 weatherapikey = ""
@@ -25,7 +26,6 @@ def chatbot(input):
         messages.append({"role": "assistant", "content": reply})
         return reply
 
-
 def weather_data(zipcode):
     response = requests.get(
         f"https://api.weatherapi.com/v1/current.json?key={weatherapikey}&q={zipcode}&aqi=no"
@@ -37,3 +37,4 @@ def weather_data(zipcode):
     temp = weatherdict["current"]["temp_c"]
     condition = weatherdict["current"]["condition"]["text"]
     return [city, temp, condition]
+print(chatbot("hello"))
