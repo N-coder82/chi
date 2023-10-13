@@ -1,7 +1,5 @@
 # Dedicated to my sister, she gave me the idea.
 import os
-
-# TODO: remove key param when done changing to to whats referenced in todoforbasemvp.md
 def metadata_read(filename):
     key = "username"
     usernamevalue = ""

@@ -4,10 +4,12 @@ import requests
 import json
 from datetime import datetime
 import argparse
+import sys
+import appsetup
 # TODO: add env vaiable support for apikey
-openai.api_key = ""
-weatherapikey = ""
-zipcode = ""
+openai.api_key = appsetup.openaiapikey()
+weatherapikey = appsetup.weatherapikey()
+zipcode = "94404"
 now = datetime.now()
 def chatbot(input):
     messages = [
