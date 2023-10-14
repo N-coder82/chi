@@ -2,11 +2,6 @@ from PyQt6 import QtWidgets, QtCore
 import sys
 from ui import Ui_Chi
 import shell
-import appsetup
-if appsetup.setupcheck():
-    print("LOG: starting app")
-elif appsetup.setupcheck() == "False" or appsetup.setupcheck() == "false":
-    print("LOG: Setting up app for firstrun")
 class MainWindow(QtWidgets.QMainWindow, Ui_Chi):
     def __init__(self):
         super().__init__()

@@ -7,8 +7,8 @@ import argparse
 import sys
 import appsetup
 # TODO: add env vaiable support for apikey
-openai.api_key = appsetup.openaiapikey()
-weatherapikey = appsetup.weatherapikey()
+openai.api_key = ""
+weatherapikey = ""
 zipcode = "94404"
 now = datetime.now()
 def chatbot(input):
