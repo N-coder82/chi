@@ -1,13 +1,14 @@
 from PyQt6 import QtWidgets, QtCore
 import sys
 from ui import Ui_Chi
-import shell
+import controller
 class MainWindow(QtWidgets.QMainWindow, Ui_Chi):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         self.pushButton.clicked.connect(self.on_pushButton_clicked)
-        city, temp, condition = shell.weather_data("94404")
+        self.pushButton2.clicked.connect(self.on_pushButton2_clicked)
+        city, temp, condition = controller.weather_data("10001")
         self.textBrowser_2.setHtml(f"<h3>City: {city}<br>Temp: {temp}<br>Conditions: {condition}</h3>")
         self.timer = QtCore.QTimer(self)
         self.timer.timeout.connect(self.update_time)
@@ -22,8 +23,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_Chi):
     def on_pushButton_clicked(self):
         # Add your code here to respond to the button click
         chatgptQues = self.lineEdit.text()
-        GPTanswer = shell.chatbot(chatgptQues)
+        GPTanswer = controller.chatbot(chatgptQues)
         self.textBrowser.setHtml(f"<h3>{GPTanswer}</h3>")
+    def on_pushButton2_clicked(self):
+        # Add your code here to respond to the button click
+        pass
 
 
 
