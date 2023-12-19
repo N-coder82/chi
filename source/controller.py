@@ -9,6 +9,7 @@ import sys
 # TODO: add env vaiable support for apikey
 openai.api_key = ""
 weatherapikey = ""
+zipcode = "10001"
 now = datetime.now()
 def chatbot(input):
     messages = [
