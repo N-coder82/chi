@@ -1,13 +1,14 @@
 # Dedicated to my sister, she gave me the idea.
 import os
-import openai
+from openai import OpenAI
+
+client = OpenAI(api_key="")
 import requests
 import json
 from datetime import datetime
 import argparse
 import sys
 # TODO: add env vaiable support for apikey
-openai.api_key = ""
 weatherapikey = ""
 zipcode = "10001"
 now = datetime.now()
@@ -23,7 +24,7 @@ def chatbot(input):
     ]
     if input:
         messages.append({"role": "user", "content": input})
-        chat = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
+        chat = client.chat.completions.create(model="gpt-3.5-turbo", messages=messages)
         reply = chat.choices[0].message.content  # type: ignore
         messages.append({"role": "assistant", "content": reply})
         return reply

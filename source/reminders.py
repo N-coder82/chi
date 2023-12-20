@@ -1,7 +1,7 @@
 from PyQt6 import QtWidgets, QtCore
 import sys
 from remindersdialog import Ui_MainWindow
-#import controller
+import controller
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
