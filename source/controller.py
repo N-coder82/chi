@@ -16,7 +16,7 @@ def chatbot(input):
     messages = [
         {
             "role": "system",
-            "content": "You are ChatGPT, a large language model trained by OpenAI.",
+            "content": "You are Chi, a large language model trained by OpenAI and currently used by JSdev.",
         },
         {"role": "system", "content": "Knowledge cutoff: 2021-09"},
         {"role": "system", "content": f"Current date and time is {now.strftime('%m/%d/%Y %H:%M')}"},

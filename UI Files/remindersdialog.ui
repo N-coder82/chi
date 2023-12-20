@@ -18,7 +18,7 @@
     <normaloff>../../../../../../Downloads/logo-09e4a95d.svg</normaloff>../../../../../../Downloads/logo-09e4a95d.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTextBrowser" name="textBrowser">
+   <widget class="QTextBrowser" name="summary_display_box">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -28,7 +28,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QGroupBox" name="repeat_box">
     <property name="geometry">
      <rect>
       <x>840</x>
@@ -40,7 +40,7 @@
     <property name="title">
      <string>Repeat</string>
     </property>
-    <widget class="QCheckBox" name="checkBox">
+    <widget class="QCheckBox" name="repeat_checkbox">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -53,7 +53,7 @@
       <string>Repeat?</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="day_repeat_input_box">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -63,7 +63,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="year_repeat_input_box">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -73,7 +73,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="day_repeat_label">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -86,7 +86,7 @@
       <string>Times per day:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="year_repeat_label">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -100,7 +100,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox_2">
+   <widget class="QGroupBox" name="scdeuling_box">
     <property name="geometry">
      <rect>
       <x>830</x>
@@ -112,7 +112,7 @@
     <property name="title">
      <string>Scheduling</string>
     </property>
-    <widget class="QTimeEdit" name="timeEdit">
+    <widget class="QTimeEdit" name="time_box">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -122,7 +122,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateEdit">
+    <widget class="QDateEdit" name="date_box">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -132,7 +132,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="time_label">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -145,7 +145,7 @@
       <string>Time:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="date_label">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -159,7 +159,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="create_button">
     <property name="geometry">
      <rect>
       <x>610</x>
@@ -178,7 +178,7 @@
      <string>Create</string>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox_3">
+   <widget class="QGroupBox" name="info_box">
     <property name="geometry">
      <rect>
       <x>830</x>
@@ -190,7 +190,7 @@
     <property name="title">
      <string>Text</string>
     </property>
-    <widget class="QLabel" name="label_6">
+    <widget class="QLabel" name="desc_label">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -203,7 +203,7 @@
       <string>Description:</string>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_2">
+    <widget class="QTextEdit" name="desc_input_box">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -213,7 +213,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit">
+    <widget class="QTextEdit" name="title_input_box">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -223,7 +223,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_5">
+    <widget class="QLabel" name="title_label">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -237,7 +237,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="summary_label">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -250,7 +250,7 @@
      <string>Summary:</string>
     </property>
    </widget>
-   <widget class="Line" name="line">
+   <widget class="Line" name="scheduling_repeat_info_divider">
     <property name="geometry">
      <rect>
       <x>800</x>
@@ -263,7 +263,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="line_2">
+   <widget class="Line" name="summary_calendar_other_divider">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -276,7 +276,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox_4">
+   <widget class="QGroupBox" name="other_box">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -288,7 +288,7 @@
     <property name="title">
      <string>Other</string>
     </property>
-    <widget class="QLabel" name="label_9">
+    <widget class="QLabel" name="priority_label">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -301,7 +301,7 @@
       <string>Priority:</string>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox_2">
+    <widget class="QCheckBox" name="flagged_checkbox">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -314,7 +314,7 @@
       <string>Flagged?</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="place_input_box">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -324,7 +324,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="priority_dropdown">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -354,7 +354,7 @@
       </property>
      </item>
     </widget>
-    <widget class="QLabel" name="label_8">
+    <widget class="QLabel" name="place_label">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -368,7 +368,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="Line" name="line_3">
+   <widget class="Line" name="other_calendar_divider">
     <property name="geometry">
      <rect>
       <x>380</x>
@@ -381,7 +381,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QCalendarWidget" name="calendarWidget">
+   <widget class="QCalendarWidget" name="calendar">
     <property name="geometry">
      <rect>
       <x>410</x>
