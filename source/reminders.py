@@ -7,7 +7,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.pushButton.clicked.connect(self.on_pushButton_clicked)
-        self.pushButton2.clicked.connect(self.on_pushButton2_clicked)
+        #self.pushButton2.clicked.connect(self.on_pushButton2_clicked)
     def on_pushButton_clicked(self):
         # Get all data from all inputs and process into a single write request in controller
         pass
