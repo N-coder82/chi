@@ -9,14 +9,14 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1044, 460)
+class Ui_RemindersDialog(object):
+    def setupUi(self, RemindersDialog):
+        RemindersDialog.setObjectName("RemindersDialog")
+        RemindersDialog.resize(1044, 460)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../../../../../../Downloads/logo-09e4a95d.svg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        MainWindow.setWindowIcon(icon)
-        self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
+        RemindersDialog.setWindowIcon(icon)
+        self.centralwidget = QtWidgets.QWidget(parent=RemindersDialog)
         self.centralwidget.setObjectName("centralwidget")
         self.summary_display_box = QtWidgets.QTextBrowser(parent=self.centralwidget)
         self.summary_display_box.setGeometry(QtCore.QRect(20, 270, 451, 181))
@@ -119,41 +119,41 @@ class Ui_MainWindow(object):
         self.calendar = QtWidgets.QCalendarWidget(parent=self.centralwidget)
         self.calendar.setGeometry(QtCore.QRect(410, 10, 381, 201))
         self.calendar.setObjectName("calendar")
-        MainWindow.setCentralWidget(self.centralwidget)
+        RemindersDialog.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(RemindersDialog)
+        QtCore.QMetaObject.connectSlotsByName(RemindersDialog)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, RemindersDialog):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Chi - Reminders Dialog"))
-        self.repeat_box.setTitle(_translate("MainWindow", "Repeat"))
-        self.repeat_checkbox.setText(_translate("MainWindow", "Repeat?"))
-        self.day_repeat_label.setText(_translate("MainWindow", "Times per day:"))
-        self.year_repeat_label.setText(_translate("MainWindow", "Times per year:"))
-        self.scdeuling_box.setTitle(_translate("MainWindow", "Scheduling"))
-        self.time_label.setText(_translate("MainWindow", "Time:"))
-        self.date_label.setText(_translate("MainWindow", "Date:"))
-        self.create_button.setText(_translate("MainWindow", "Create"))
-        self.info_box.setTitle(_translate("MainWindow", "Text"))
-        self.desc_label.setText(_translate("MainWindow", "Description:"))
-        self.title_label.setText(_translate("MainWindow", "Title:"))
-        self.summary_label.setText(_translate("MainWindow", "Summary:"))
-        self.other_box.setTitle(_translate("MainWindow", "Other"))
-        self.priority_label.setText(_translate("MainWindow", "Priority:"))
-        self.flagged_checkbox.setText(_translate("MainWindow", "Flagged?"))
-        self.priority_dropdown.setItemText(0, _translate("MainWindow", "4 - Highest"))
-        self.priority_dropdown.setItemText(1, _translate("MainWindow", "3 - High"))
-        self.priority_dropdown.setItemText(2, _translate("MainWindow", "2 - Normal"))
-        self.priority_dropdown.setItemText(3, _translate("MainWindow", "1 - Low"))
-        self.place_label.setText(_translate("MainWindow", "Place:"))
+        RemindersDialog.setWindowTitle(_translate("RemindersDialog", "Chi - Reminders Dialog"))
+        self.repeat_box.setTitle(_translate("RemindersDialog", "Repeat"))
+        self.repeat_checkbox.setText(_translate("RemindersDialog", "Repeat?"))
+        self.day_repeat_label.setText(_translate("RemindersDialog", "Times per day:"))
+        self.year_repeat_label.setText(_translate("RemindersDialog", "Times per year:"))
+        self.scdeuling_box.setTitle(_translate("RemindersDialog", "Scheduling"))
+        self.time_label.setText(_translate("RemindersDialog", "Time:"))
+        self.date_label.setText(_translate("RemindersDialog", "Date:"))
+        self.create_button.setText(_translate("RemindersDialog", "Create"))
+        self.info_box.setTitle(_translate("RemindersDialog", "Text"))
+        self.desc_label.setText(_translate("RemindersDialog", "Description:"))
+        self.title_label.setText(_translate("RemindersDialog", "Title:"))
+        self.summary_label.setText(_translate("RemindersDialog", "Summary:"))
+        self.other_box.setTitle(_translate("RemindersDialog", "Other"))
+        self.priority_label.setText(_translate("RemindersDialog", "Priority:"))
+        self.flagged_checkbox.setText(_translate("RemindersDialog", "Flagged?"))
+        self.priority_dropdown.setItemText(0, _translate("RemindersDialog", "4 - Highest"))
+        self.priority_dropdown.setItemText(1, _translate("RemindersDialog", "3 - High"))
+        self.priority_dropdown.setItemText(2, _translate("RemindersDialog", "2 - Normal"))
+        self.priority_dropdown.setItemText(3, _translate("RemindersDialog", "1 - Low"))
+        self.place_label.setText(_translate("RemindersDialog", "Place:"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    RemindersDialog = QtWidgets.QMainWindow()
+    ui = Ui_RemindersDialog()
+    ui.setupUi(RemindersDialog)
+    RemindersDialog.show()
     sys.exit(app.exec())

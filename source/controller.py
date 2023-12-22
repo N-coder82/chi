@@ -8,10 +8,13 @@ import json
 from datetime import datetime
 import argparse
 import sys
+
 # TODO: add env vaiable support for apikey
 weatherapikey = ""
 zipcode = "10001"
 now = datetime.now()
+
+
 def chatbot(input):
     messages = [
         {
@@ -19,8 +22,11 @@ def chatbot(input):
             "content": "You are Chi, a large language model trained by OpenAI and currently used by JSdev.",
         },
         {"role": "system", "content": "Knowledge cutoff: 2021-09"},
-        {"role": "system", "content": f"Current date and time is {now.strftime('%m/%d/%Y %H:%M')}"},
-        {"role": "system", "content": f"Current weather is: {weather_data(zipcode)}"}
+        {
+            "role": "system",
+            "content": f"Current date and time is {now.strftime('%m/%d/%Y %H:%M')}",
+        },
+        {"role": "system", "content": f"Current weather is: {weather_data(zipcode)}"},
     ]
     if input:
         messages.append({"role": "user", "content": input})
@@ -28,6 +34,7 @@ def chatbot(input):
         reply = chat.choices[0].message.content  # type: ignore
         messages.append({"role": "assistant", "content": reply})
         return reply
+
 
 def weather_data(zipcode):
     response = requests.get(
@@ -40,7 +47,11 @@ def weather_data(zipcode):
     temp = weatherdict["current"]["temp_c"]
     condition = weatherdict["current"]["condition"]["text"]
     return [city, temp, condition]
+
+
 print(chatbot("hello"))
+
+
 def metadata_read(filename):
     key = "username"
     usernamevalue = ""
@@ -64,12 +75,14 @@ def metadata_read(filename):
         return None
     return [usernamevalue, uidvalue]
 
+
 def metadata_add(filename, username, uid):
     with open(filename, "r") as file:
         content = file.read()
 
     with open(filename, "w") as file:
         file.write(f"username:{username}\nuid:{uid}\n" + content)
+
 
 def getkeytowrite(filename):
     try:
@@ -84,14 +97,25 @@ def getkeytowrite(filename):
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
 
+
 def write(
-    filename, title, desc, datetodone, timetodone, repeat, place, priority, flagged
+    filename,
+    title,
+    desc,
+    datetodone,
+    timetodone,
+    repeatbool,
+    repeat_day,
+    repeat_year,
+    place,
+    priority,
+    flagged,
 ):
     keytowrite = getkeytowrite(filename)
     print("key is", keytowrite)
     try:
         with open(filename, "a") as file:
-            value = f"{title},{desc},{datetodone},{timetodone},{repeat},{place},{priority},{flagged}"
+            value = f"{title},{desc},{datetodone},{timetodone},{repeatbool},{repeat_day},{repeat_year},{place},{priority},{flagged}"
             file.write(f"{keytowrite}:{value}\n")
     except PermissionError:
         raise PermissionError("No permission to edit file.")
@@ -113,38 +137,26 @@ def read(filename, key):
             data = file.readlines()
             for line in data:
                 if str(line.split(":")[0]) == key:
-                    rawdata = line.strip().split(":")[1]
-                    (
-                        title,
-                        desc,
-                        datetodone,
-                        timetodone,
-                        repeat,
-                        place,
-                        priority,
-                        flagged,
-                    ) = rawdata.split(",")
-                    if repeat == "true" or "True":
-                        repeat = True
-                    elif repeat == "false" or "False":
-                        repeat = False
-                    if flagged == "true" or "True":
-                        flagged = True
-                    elif flagged == "false" or "False":
-                        flagged = False
-                    return [
-                        title,
-                        desc,
-                        datetodone,
-                        timetodone,
-                        repeat,
-                        place,
-                        priority,
-                        flagged,
-                    ]
+                    rawdata = line.strip().split(":")[1] 
+                    title,desc,datetodone,timetodone,repeatbool,repeat_day,repeat_year,place,priority,flagged = rawdata.split(",")
+                    h,m = timetodone.split(".")
+                    timetodone = h+":"+m
+                    return {
+                        "Title":title,
+                        "Desc":desc,
+                        "Date":datetodone,
+                        "Time":timetodone,
+                        "Repeating":repeatbool,
+                        "Repeating / Year":repeat_year,
+                        "Repeating / Day": repeat_day,
+                        "Place":place,
+                        "Priority":priority,
+                        "Flaagged":flagged,
+                    }
 
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
+
 
 def delete(filename, key):
     # key NEEDS TO BE A STRING
@@ -158,6 +170,7 @@ def delete(filename, key):
                     file.write(line)
     except FileNotFoundError:
         raise Exception(f'File named "{filename}" not found')
+
 
 def edit(filename, old_key, new_value):
     try:
@@ -177,4 +190,4 @@ def edit(filename, old_key, new_value):
 
     except FileNotFoundError:
         raise Exception(f'File named "{filename}" not found')
-
+print(read("reminders.chi","2"))

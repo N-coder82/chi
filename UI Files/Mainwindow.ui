@@ -19,16 +19,6 @@
     <normaloff>../../../../../../Downloads/logo-09e4a95d.svg</normaloff>../../../../../../Downloads/logo-09e4a95d.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QColumnView" name="reminders_display">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>521</width>
-      <height>381</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="gpt_input">
     <property name="geometry">
      <rect>
@@ -215,6 +205,16 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="text">
      <string>Create Reminder</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="reminders_display">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>521</width>
+      <height>381</height>
+     </rect>
     </property>
    </widget>
   </widget>
