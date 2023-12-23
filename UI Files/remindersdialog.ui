@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>RemindersDialog</class>
+ <widget class="QMainWindow" name="RemindersDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -32,7 +32,7 @@
     <property name="geometry">
      <rect>
       <x>840</x>
-      <y>130</y>
+      <y>120</y>
       <width>161</width>
       <height>131</height>
      </rect>
@@ -184,7 +184,7 @@
       <x>830</x>
       <y>260</y>
       <width>201</width>
-      <height>141</height>
+      <height>121</height>
      </rect>
     </property>
     <property name="title">
@@ -194,33 +194,13 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>80</y>
+       <y>70</y>
        <width>71</width>
        <height>16</height>
       </rect>
      </property>
      <property name="text">
       <string>Description:</string>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="desc_input_box">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>110</y>
-       <width>181</width>
-       <height>31</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="title_input_box">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>181</width>
-       <height>31</height>
-      </rect>
      </property>
     </widget>
     <widget class="QLabel" name="title_label">
@@ -234,6 +214,26 @@
      </property>
      <property name="text">
       <string>Title:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="title_input_box">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>181</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="desc_input_box">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>181</width>
+       <height>21</height>
+      </rect>
      </property>
     </widget>
    </widget>
