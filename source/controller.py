@@ -6,27 +6,22 @@ client = OpenAI(api_key="")
 import requests
 import json
 from datetime import datetime
-import argparse
-import sys
 
 # TODO: add env vaiable support for apikey
 weatherapikey = ""
-zipcode = "10001"
 now = datetime.now()
 
+zipcode = "10001"
 
-def chatbot(input):
+
+def chatbot(input,remindersinput):
     messages = [
-        {
-            "role": "system",
-            "content": "You are Chi, a large language model trained by OpenAI and currently used by JSdev.",
-        },
+        {"role": "system","content": "You are Chi, a large language model trained by OpenAI and currently used by JSdev",},
         {"role": "system", "content": "Knowledge cutoff: 2021-09"},
-        {
-            "role": "system",
-            "content": f"Current date and time is {now.strftime('%m/%d/%Y %H:%M')}",
-        },
+        {"role": "system","content": f"Current date and time is {now.strftime('%m/%d/%Y %H:%M')}",},
         {"role": "system", "content": f"Current weather is: {weather_data(zipcode)}"},
+        {"role": "system", "content": f"These are the users reminders: {remindersinput}\n they can acess them however they like and you will answer any questions they have about them."},
+        {"role": "system", "content": "You MUST print out data in HTML format, not markdown, so newlines MUST be shown using <br>"},
     ]
     if input:
         messages.append({"role": "user", "content": input})
@@ -47,9 +42,6 @@ def weather_data(zipcode):
     temp = weatherdict["current"]["temp_c"]
     condition = weatherdict["current"]["condition"]["text"]
     return [city, temp, condition]
-
-
-print(chatbot("hello"))
 
 
 def metadata_read(filename):
@@ -137,21 +129,32 @@ def read(filename, key):
             data = file.readlines()
             for line in data:
                 if str(line.split(":")[0]) == key:
-                    rawdata = line.strip().split(":")[1] 
-                    title,desc,datetodone,timetodone,repeatbool,repeat_day,repeat_year,place,priority,flagged = rawdata.split(",")
-                    h,m = timetodone.split(".")
-                    timetodone = h+":"+m
+                    rawdata = line.strip().split(":")[1]
+                    (
+                        title,
+                        desc,
+                        datetodone,
+                        timetodone,
+                        repeatbool,
+                        repeat_day,
+                        repeat_year,
+                        place,
+                        priority,
+                        flagged,
+                    ) = rawdata.split(",")
+                    h, m = timetodone.split(".")
+                    timetodone = h + ":" + m
                     return {
-                        "Title":title,
-                        "Desc":desc,
-                        "Date":datetodone,
-                        "Time":timetodone,
-                        "Repeating":repeatbool,
-                        "Repeating / Year":repeat_year,
+                        "Title": title,
+                        "Desc": desc,
+                        "Date": datetodone,
+                        "Time": timetodone,
+                        "Repeating": repeatbool,
+                        "Repeating / Year": repeat_year,
                         "Repeating / Day": repeat_day,
-                        "Place":place,
-                        "Priority":priority,
-                        "Flaagged":flagged,
+                        "Place": place,
+                        "Priority": priority,
+                        "Flagged": flagged,
                     }
 
     except FileNotFoundError:
@@ -190,4 +193,3 @@ def edit(filename, old_key, new_value):
 
     except FileNotFoundError:
         raise Exception(f'File named "{filename}" not found')
-print(read("reminders.chi","2"))

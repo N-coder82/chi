@@ -3,8 +3,8 @@ import sys
 from ui import Ui_Chi
 from remindersdialog import Ui_RemindersDialog
 import controller
-
-
+zipcode="10001"
+currentreminders = ""
 def print_dict(dct):
     return_string = ""
     for name, item in dct.items():
@@ -70,11 +70,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_Chi):
         self.create_reminder_button.clicked.connect(
             self.on_create_reminder_button_clicked
         )
-        city, temp, condition = controller.weather_data("10001")
+        city, temp, condition = controller.weather_data(zipcode)
         self.weather_text_display.setHtml(
             f"<h3>City: {city}<br>Temp: {temp}<br>Conditions: {condition}</h3>"
         )
-        currentreminders = ""
         linecount = 0
         with open("reminders.chi", "r") as file:
             data = file.readlines()
@@ -84,6 +83,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_Chi):
         i = 0
         for i in range(linecount):
             current_reminders_dict = controller.read("reminders.chi", str(i + 1))
+            global currentreminders 
             currentreminders += print_dict(current_reminders_dict)
             currentreminders += "<br>=======================================<br>"
 
@@ -103,7 +103,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_Chi):
     def on_gpt_send_clicked(self):
         # Add your code here to respond to the button click
         chatgptQues = self.gpt_input_box.text()
-        GPTanswer = controller.chatbot(chatgptQues)
+        self.gpt_input_box.clear()
+        GPTanswer = controller.chatbot(chatgptQues, currentreminders)
+        print(currentreminders)
         self.gpt_text_display.setHtml(f"<h3>{GPTanswer}</h3>")
 
     def on_create_reminder_button_clicked(self):
