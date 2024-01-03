@@ -77,18 +77,18 @@ def metadata_add(filename, username, uid):
 
 
 def getkeytowrite(filename):
+    print("hello from getkeytowrite()!")
     try:
         with open(filename, "r") as file:
             lines = file.readlines()
             if lines:
                 key = lines[-1].split(":")
-                print(lines[-1])
+                # print(lines[-1])
                 return int(key[0]) + 1
             else:
                 raise OSError("Empty file.")
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
-
 
 def write(
     filename,
@@ -103,18 +103,21 @@ def write(
     priority,
     flagged,
 ):
+    print("about to call getkeytowrite()")
     keytowrite = getkeytowrite(filename)
-    print("key is", keytowrite)
+    print("got key to write")
     try:
+        print("about to write")
         with open(filename, "a") as file:
             value = f"{title},{desc},{datetodone},{timetodone},{repeatbool},{repeat_day},{repeat_year},{place},{priority},{flagged}"
             file.write(f"{keytowrite}:{value}\n")
+        print("written")
     except PermissionError:
         raise PermissionError("No permission to edit file.")
     except IOError as exep:
         raise IOError(f"Unknown IO error: {exep}.")
 
-
+# write("reminders.chi","beep2", "borp","1/1/00","12.00 AM","False","1","2", "idk","4 - Highest","False")
 def read(filename, key):
     title = ""
     desc = ""
