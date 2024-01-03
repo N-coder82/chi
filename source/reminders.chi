@@ -1,7 +1,5 @@
 username:jsdev
 uid:0000000001
-1:wefd,23rsaf,1/1/00,12.00 AM,True,1,365,saedg,2,True
-2:sdfv,wsdfv,1/1/00,12.00 AM,True,1,365,sfaer,4 - Highest,True
-3:aer,xcvdr,1/1/00,12.00 AM,True,1,365,iubsronv;a,4 - Highest,True
-4:aer,xcvdr,1/1/00,12.00 AM,True,1,365,iubsronv;a,4 - Highest,True
-5:aer,xcvdr,1/1/00,12.00 AM,True,1,365,iubsronv;a,4 - Highest,True
+1:Finish v1,Finish and merge v1.0.0-PRODUCTION branch,2/1/24,05.00 PM,False,,,Home,4,True
+2:Test Reminder 2,Test Reminder 2,1/1/24,3.00 PM,True,24,365,Test Reminder 2,4 - Highest,True
+3:Get Gelato,Go to the ice cream place in front of the duomo.,2/1/26,4.00 PM,False,,,Florence Italy,3 - High,True
