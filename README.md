@@ -1,3 +1,5 @@
+> [!IMPORTANT]
+> I am a new dev, and still learning so ANY help with this project is more than welcome!
 
 # Chi
 
