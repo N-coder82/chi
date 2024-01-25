@@ -51,7 +51,7 @@ class RemindersPopup(QtWidgets.QMainWindow, Ui_RemindersDialog):
                 "year repeat": year_repeat_selected,
                 "flagged?": flagged_bool,
             }
-            self.summary_display_box.setHtml(f"<h3>{print_dict(summary_dict)}</h3>")
+            self.summary_display_box.setPlainText(f"<h3>{print_dict(summary_dict)}</h3>")
             controller.write(
                 "reminders.chi",
                 title_selected,

@@ -7,7 +7,6 @@ import requests
 import json
 from datetime import datetime
 
-# TODO: add env vaiable support for apikey
 weatherapikey = ""
 now = datetime.now()
 
@@ -21,7 +20,6 @@ def chatbot(input,remindersinput):
         {"role": "system","content": f"Current date and time is {now.strftime('%m/%d/%Y %H:%M')}",},
         {"role": "system", "content": f"Current weather is: {weather_data(zipcode)}"},
         {"role": "system", "content": f"These are the users reminders: {remindersinput}\n they can acess them however they like and you will answer any questions they have about them."},
-        {"role": "system", "content": "You MUST print out data in HTML format, not markdown, so newlines MUST be shown using <br>"},
     ]
     if input:
         messages.append({"role": "user", "content": input})
