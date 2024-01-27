@@ -5,6 +5,8 @@
 
  Reminders app that combines ChatGPT, weather and a simple interface perfect for power users into one, singular app. It is a GUI app built in Python. Note: you will need to provide both an OpenAI API key AND a weatherapi.com API key.
 
+![Main Page](https://raw.githubusercontent.com/N-coder82/chi/main/Screenshot%20Main%20Page.png)
+![New Reminder](https://github.com/N-coder82/chi/blob/main/Screenshot%20reminders%20Dialog.png?raw=true)
 
 ## Authors
 
