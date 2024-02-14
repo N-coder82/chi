@@ -11,7 +11,7 @@
 ## Authors
 
 - [@N-Coder82](https://.github.com/N-Coder82)
-- [@Annieliu289](https://github.com/Annieliu289)
+- [@Annieliu289](https://github.com/Annieliu289) (They helped me with PyQT and stuff)
 
 
 ## Badges
