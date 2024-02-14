@@ -49,13 +49,12 @@ Install dependencies
 
 Add API keys
 
-```bash
-  nano controller
-```
+see onboarding.txt
+
 Start the app
 
 ```bash
-  python3 app.py
+  python3 /source/app.py
 ```
 
 
