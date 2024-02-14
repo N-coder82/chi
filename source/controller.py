@@ -1,13 +1,11 @@
 # Dedicated to my sister, she gave me the idea.
 import os
 from openai import OpenAI
-
-client = OpenAI(api_key="")
 import requests
 import json
 from datetime import datetime
-
-weatherapikey = ""
+client = OpenAI()
+weatherapikey = os.environ['WEATHER_API_KEY']
 now = datetime.now()
 
 zipcode = "10001"
@@ -41,39 +39,6 @@ def weather_data(zipcode):
     condition = weatherdict["current"]["condition"]["text"]
     return [city, temp, condition]
 
-
-def metadata_read(filename):
-    key = "username"
-    usernamevalue = ""
-    try:
-        with open(filename, "r") as file:
-            data = file.readlines()
-            for line in data:
-                if key in line:
-                    usernamevalue = line.strip().split(":")[1]
-    except FileNotFoundError:
-        return None
-    key = "uid"
-    uidvalue = ""
-    try:
-        with open(filename, "r") as file:
-            data = file.readlines()
-            for line in data:
-                if key in line:
-                    uidvalue = line.strip().split(":")[1]
-    except FileNotFoundError:
-        return None
-    return [usernamevalue, uidvalue]
-
-
-def metadata_add(filename, username, uid):
-    with open(filename, "r") as file:
-        content = file.read()
-
-    with open(filename, "w") as file:
-        file.write(f"username:{username}\nuid:{uid}\n" + content)
-
-
 def getkeytowrite(filename):
     print("hello from getkeytowrite()!")
     try:
@@ -84,7 +49,7 @@ def getkeytowrite(filename):
                 # print(lines[-1])
                 return int(key[0]) + 1
             else:
-                raise OSError("Empty file.")
+                return 1
     except FileNotFoundError:
         raise FileNotFoundError("File doesn't exist.")
 

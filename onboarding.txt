@@ -1,0 +1,7 @@
+1. Open Terminal
+2. Type in `nano ~.zshrc`
+3. Once you see a file with lots of jargon, use the arrow keys to scroll all the way to the bottom, make a new line, and type: `export OPENAI_API_KEY=‘<replace this with your OpenAI API key>’`
+4. Make a new line, and type: `export WEATHER_API_KEY='<replace this with your Weather API key>'`
+5. Click ^X, then click Y, then click ENTER
+6. Type in `source ~/.zshrc`
+
