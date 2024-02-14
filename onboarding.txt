@@ -4,4 +4,3 @@
 4. Make a new line, and type: `export WEATHER_API_KEY='<replace this with your Weather API key>'`
 5. Click ^X, then click Y, then click ENTER
 6. Type in `source ~/.zshrc`
-
