@@ -1,10 +1,15 @@
 from PyQt6 import QtWidgets, QtCore
 import sys
-
+import os
 import PyQt6
 from ui import Ui_Chi
 from remindersdialog import Ui_RemindersDialog
 import controller
+if os.path.exists(os.path.expanduser('~/.chi')):
+    os.chdir(os.path.expanduser('~/.chi'))
+else:
+    os.mkdir(os.path.expanduser("~/.chi"))
+    os.chdir(os.path.expanduser('~/.chi'))
 zipcode="10001"
 currentreminders = ""
 amtoftimesrun = 0
@@ -86,7 +91,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_Chi):
             data = file.readlines()
             for line in data:
                 linecount += 1
-            linecount = linecount - 2
+            linecount = linecount
         i = 0
         for i in range(linecount):
             current_reminders_dict = controller.read("reminders.chi", str(i + 1))
